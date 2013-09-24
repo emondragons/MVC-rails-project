@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130923201948) do
+ActiveRecord::Schema.define(version: 20130924020826) do
 
   create_table "business_categories", force: true do |t|
     t.string   "categories"
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(version: 20130923201948) do
 
   add_index "business_category_has_vendors", ["business_category_id"], name: "index_business_category_has_vendors_on_business_category_id"
   add_index "business_category_has_vendors", ["vendor_id"], name: "index_business_category_has_vendors_on_vendor_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "locations", force: true do |t|
     t.string   "longitude"
@@ -69,6 +75,16 @@ ActiveRecord::Schema.define(version: 20130923201948) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "vendor_categories", force: true do |t|
+    t.integer  "vendor_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vendor_categories", ["category_id"], name: "index_vendor_categories_on_category_id"
+  add_index "vendor_categories", ["vendor_id"], name: "index_vendor_categories_on_vendor_id"
 
   create_table "vendors", force: true do |t|
     t.string   "vendor_name"

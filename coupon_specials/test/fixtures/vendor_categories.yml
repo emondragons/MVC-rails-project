@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  categories: MyString
+  vendor_id: 
+  category_id: 
 
 two:
-  categories: MyString
+  vendor_id: 
+  category_id: 
