@@ -8,7 +8,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    render :text => params
+
+    User.create(first_name:params[:first_name], last_name:params[:last_name],email:params[:email])
+    # render :text => params[:post]["first_name"]
+
+    redirect_to "/users/show"
+
 
   end
 
@@ -16,7 +21,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user.User.all
+    @users = User.all
+
   end
 
   def update
