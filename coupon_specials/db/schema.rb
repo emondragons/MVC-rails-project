@@ -13,22 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130924020826) do
 
-  create_table "business_categories", force: true do |t|
-    t.string   "categories"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "business_category_has_vendors", force: true do |t|
-    t.integer  "vendor_id"
-    t.integer  "business_category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "business_category_has_vendors", ["business_category_id"], name: "index_business_category_has_vendors_on_business_category_id"
-  add_index "business_category_has_vendors", ["vendor_id"], name: "index_business_category_has_vendors_on_vendor_id"
-
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"

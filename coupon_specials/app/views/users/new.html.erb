@@ -1,0 +1,16 @@
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+
+
+
+<form action="create" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	First Name:<input type="text" name="first_name" placeholder="first name"><br>
+	Last Name:<input type="text" name="last_name" placeholder="last name"><br>
+	email:<input type="text" name="email" placeholder="email"><br>
+	Zipcode:<input type="text" name="zipcode" placeholder="zipcode"><br>
+	Password:<input type="text" name="password" placeholder = "pasword"><br>
+	Password Confirmation:<input type="confirm_password" name="confirm_password" placeholder = "re-enter password"><br>
+	<input type="submit" value="submit" name="submit">
+
+</form>
