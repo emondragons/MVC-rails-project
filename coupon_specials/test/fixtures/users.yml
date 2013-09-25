@@ -4,12 +4,14 @@ one:
   first_name: MyString
   last_name: MyString
   email: MyString
-  zipcode: 1
-  password: MyString
+  zipcode: MyString
+  password_digest: MyString
+  type: 
 
 two:
   first_name: MyString
   last_name: MyString
   email: MyString
-  zipcode: 1
-  password: MyString
+  zipcode: MyString
+  password_digest: MyString
+  type: 

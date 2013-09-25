@@ -1,4 +1,6 @@
 CouponSpecials::Application.routes.draw do
+  resources :session_user, :only => [:new, :create, :destroy]
+
   get "users/index"
   get "users/new"
   post "users/create" => 'users#create'

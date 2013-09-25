@@ -8,11 +8,17 @@ class UsersController < ApplicationController
   end
 
   def create
-
-    User.create(first_name:params[:first_name], last_name:params[:last_name],email:params[:email])
+    # render text: params[:user]
+    User.create(first_name:params[:user][:first_name], 
+                last_name:params[:user][:last_name],
+                email:params[:user][:email], 
+                user_type: params[:user][:user_type], 
+                zipcode: params[:user][:zipcode], 
+                password:params[:user][:password], 
+                password_confirmation:params[:user][:password_confirmation])
     # render :text => params[:post]["first_name"]
 
-    redirect_to "/users/show"
+    redirect_to "/session_user/new"
 
 
   end
@@ -30,4 +36,11 @@ class UsersController < ApplicationController
 
   def destroy
   end
+  private
+    # Using a private method to encapsulate the permissible parameters is just a good pattern
+    # since you'll be able to reuse the same permit list between create and update. Also, you
+    # can specialize this method with per-user checking of permissible attributes.
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :email, :zipcode, :password, :password_confirmation)
+    end
 end

@@ -1,4 +1,14 @@
 class User < ActiveRecord::Base
-	has_many :locations
-	has_many :scores
+  has_many :locations
+  has_many :scores
+
+
+  has_secure_password
+
+  geocoder_by :zipcode
+  
+
+
+
+  
 end
