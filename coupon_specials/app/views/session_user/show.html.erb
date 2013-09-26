@@ -1,0 +1,19 @@
+<h1>SessionUser#new</h1>
+<p>Find me in app/views/session_user/new.html.erb</p>
+
+
+<h1>Sign In</h1>
+
+<% if flash[:error] %>
+	<p><%= flash[:error] %></p>
+<% end %>
+
+<%= simple_form_for(:session, :url => "/location/new") do |f| %>
+  <%= f.input :location %>
+  <%= f.button :submit %>
+  
+
+<% end %>
+
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{User.last.locations.last.latitude}%2C#{User.last.locations.last.longitude}" %>
+

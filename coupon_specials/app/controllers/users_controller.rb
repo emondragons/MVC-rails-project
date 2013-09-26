@@ -9,16 +9,19 @@ class UsersController < ApplicationController
 
   def create
     # render text: params[:user]
-    User.create(first_name:params[:user][:first_name], 
+    u = User.create(first_name:params[:user][:first_name], 
                 last_name:params[:user][:last_name],
                 email:params[:user][:email], 
                 user_type: params[:user][:user_type], 
                 zipcode: params[:user][:zipcode], 
                 password:params[:user][:password], 
                 password_confirmation:params[:user][:password_confirmation])
+
+    u.locations.create(address: u.zipcode)
+
     # render :text => params[:post]["first_name"]
 
-    redirect_to "/session_user/new"
+    redirect_to "/user/show"
 
 
   end
@@ -28,7 +31,9 @@ class UsersController < ApplicationController
 
   def show
     @users = User.all
-
+    client = Foursquare2::Client.new(:client_id => 'YXH5VK34KPYPVD4NMEGMQFJROHTHPVHWYV3YOKTKZLRMJWYY', :client_secret => 'A3M0WXOJGH1WCHHQI1C0JHXTFJWRJXSDNDDEISRS0C5HI3Z2')
+    client.search_venues(:ll => '36.142064,-86.816086', :query => 'Starbucks')
+    #render text: @rslt
   end
 
   def update

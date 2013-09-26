@@ -1,5 +1,7 @@
 CouponSpecials::Application.routes.draw do
-  resources :session_user, :only => [:new, :create, :destroy]
+  
+  resources :session_user, :only => [:new , :create, :destroy, :show]
+  resources :location, :only => [:new, :create, :show, :index]
 
   get "users/index"
   get "users/new"

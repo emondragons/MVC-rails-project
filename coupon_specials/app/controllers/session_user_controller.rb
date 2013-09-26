@@ -4,8 +4,10 @@ class SessionUserController < ApplicationController
 
   def create
     user = User.find_by_email(params[:session][:email])
+
     if user.authenticate(params[:session][:password])
-  		redirect_to "/users/show"
+
+  		redirect_to "/session_user/show"
 
   		# redirect_to user
   	end
@@ -14,4 +16,9 @@ class SessionUserController < ApplicationController
 
   def destroy
   end
+
+  def show
+    
+  end
+
 end

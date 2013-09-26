@@ -34,6 +34,8 @@ gem 'geocoder'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'rails-footnotes'
+gem 'foursquare2'
+gem 'oauth2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -42,6 +44,7 @@ end
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
