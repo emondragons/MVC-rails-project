@@ -1,7 +1,17 @@
 CouponSpecials::Application.routes.draw do
   
-  resources :session_user, :only => [:new , :create, :destroy, :show]
+  # post "session_user/update_locations" => 'session_user#update_locations'
+  # post "session_user/update_specials" => 'session_user#update_specials'
+  # get "session_user/show_user" => 'session_user#show_user'
+  # get "session_user/show_vendor" => 'session_user#show_vendor'	
+
+  resources :session_user, :only => [:new , :create, :destroy]
+  get "session_user/show_user" => 'session_user#show_user'
+  get "session_user/show_vendor" => 'session_user#show_vendor'
   resources :location, :only => [:new, :create, :show, :index]
+
+  post "session_user/update_locations" => 'session_user#update_locations'
+  post "session_user/update_specials" => 'session_user#update_specials'
 
   get "users/index"
   get "users/new"
