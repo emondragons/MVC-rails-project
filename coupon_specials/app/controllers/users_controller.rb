@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
     # render :text => params[:post]["first_name"]
 
-    redirect_to "/user/show"
+    redirect_to "/session_user/new"
 
 
   end
